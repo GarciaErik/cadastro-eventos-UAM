@@ -1,15 +1,15 @@
 # Sistema de Eventos da Cidade
  
 # Descrição
-## O Sistema de Eventos da Cidade é um aplicativo console desenvolvido em Java, seguindo o paradigma de programação orientada a objetos (POO). Ele permite o cadastro e gerenciamento de eventos urbanos, como festas, shows, eventos esportivos e culturais, na cidade onde o usuário reside. Os usuários podem se cadastrar, confirmar participação em eventos, visualizar listas filtradas por status (futuros, ocorrendo agora ou passados) e cancelar inscrições.
-## O sistema utiliza LocalDateTime para controle de horários reais, ordenação por proximidade e verificação de eventos em andamento. A persistência dos eventos é feita em um arquivo de texto (events.data), garantindo que os dados sejam carregados automaticamente ao iniciar o programa.
-## Este projeto foi desenvolvido como exercício acadêmico, com ênfase em boas práticas de POO, como encapsulamento, herança (implícita via enums) e composição. O padrão MVC é adotado de forma implícita: classes de modelo (Usuario e Evento), controlador (SistemaEventos) e view via console.
+#### O Sistema de Eventos da Cidade é um aplicativo console desenvolvido em Java, seguindo o paradigma de programação orientada a objetos (POO). Ele permite o cadastro e gerenciamento de eventos urbanos, como festas, shows, eventos esportivos e culturais, na cidade onde o usuário reside. Os usuários podem se cadastrar, confirmar participação em eventos, visualizar listas filtradas por status (futuros, ocorrendo agora ou passados) e cancelar inscrições.
+#### O sistema utiliza LocalDateTime para controle de horários reais, ordenação por proximidade e verificação de eventos em andamento. A persistência dos eventos é feita em um arquivo de texto (events.data), garantindo que os dados sejam carregados automaticamente ao iniciar o programa.
+#### Este projeto foi desenvolvido como exercício acadêmico, com ênfase em boas práticas de POO, como encapsulamento, herança (implícita via enums) e composição. O padrão MVC é adotado de forma implícita: classes de modelo (Usuario e Evento), controlador (SistemaEventos) e view via console.
 
 # Funcionalidades Principais
 - Cadastro de Usuários: Registre-se com nome, email, telefone e idade (opcional).
 - Cadastro de Eventos: Crie eventos com nome, endereço, categoria (Festa, Esportivo, Show, Cultural ou Outros), horário (formato: yyyy-MM-dd HH:mm), descrição e duração (em horas).
 
-## Listagem de Eventos:
+#### Listagem de Eventos:
 - Eventos ocorrendo agora (baseado na duração).
 - Eventos futuros, ordenados por horário mais próximo.
 - Eventos passados, ordenados por data recente.
@@ -55,26 +55,9 @@ Estrutura do Projeto
 
 # Diagrama de Classes (UML-like em ASCII)
 
-text+----------------+       +-------------------+       +------------------+
-|   Usuario      |       |    Evento         |       | SistemaEventos   |
-+----------------+       +-------------------+       +------------------+
-| - nome: String |<>---->| - id: int          |<>---->| - usuarios: List  |
-| - email: String| 1    *| - nome: String     |  *    1| - eventos: List   |
-| - telefone: String|   | - endereco: String |       | - usuarioAtual    |
-| - idade: int   |       | - categoria: Categoria|   | - arquivoEventos  |
-| - participacoes|       | - horario: LocalDateTime| | - nextId: int     |
-|   List<Integer>|       | - descricao: String|       +------------------+
-+----------------+       | - duracao: int     |       | + cadastrarUsuario() |
-| + adicionarParticipacao()| +-------------------+       | + selecionarUsuario()|
-| + removerParticipacao() | | + estaOcorrendo()  |       | + cadastrarEvento()  |
-| + listarParticipacoes() | | + jaOcorreu()      |       | + listarEventos()    |
-+----------------+       | + toString()       |       | + confirmarParticipacao() |
-                        | + fromString()     |       | + listarMinhasParticipacoes() |
-                        +-------------------+       | + cancelarParticipacao() |
-                                                   | + salvarEventos()         |
-                                                   | + carregarEventos()       |
-                                                   | + menu()                  |
-                                                   +------------------+
+
+
+
 # Exemplo de Uso
 
 - Inicie o programa e cadastre um usuário (opção 1).
